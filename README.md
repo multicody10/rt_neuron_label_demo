@@ -16,6 +16,27 @@ This repo has two demos:
 * A minimal end to end loop you can run locally
 * A template you can adapt to real model activations or real neural pipelines later
 
+## How this addresses the NeuronAI issue
+
+The NeuronAI problem is: you do not want vague interpretability stories, you want a system that can keep a stable handle on each unit and attach a functional label that updates in real time.
+
+This repo solves that by turning neuron labeling into an online loop with four concrete pieces:
+
+1. Stable identity
+   * `src/identity_tracker.py` keeps a persistent id for each unit even when features drift, so labels stick to the same neuron over time instead of renumbering.
+
+2. Streaming labeling, not one shot labeling
+   * `src/online_labeler.py` and `src_ai/online_labeler_ai.py` maintain running statistics per unit, so every new observation updates the NeuronCard immediately.
+
+3. Label vectors with confidence
+   * Each unit gets a NeuronCard that stores a label profile and confidence, not a single brittle tag. This is the practical version of “label every neuron”.
+
+4. Active probing to reduce uncertainty
+   * `src/active_prober.py` chooses the next stimulus or state to test based on which probes will disambiguate competing labels fastest. This is how you scale labeling without brute force.
+
+In short: every unit has (a) a stable id, (b) a live profile of what it responds to, (c) confidence scores, and (d) an experiment loop that improves the labels online.
+
+
 ## What this is not
 * Not a medical device
 * Not a brain interface
