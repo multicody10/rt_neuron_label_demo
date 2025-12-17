@@ -75,3 +75,22 @@ PowerShell in the repo root:
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+```
+### from repo root
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+### AI unit labeling demo
+```powershell
+python src_ai\run_ai_demo.py
+```
+### bio style console demo
+```powershell
+python src\run_console.py
+```
+### bio style dashboard
+```powershell
+streamlit run src\run_dashboard.py
+```
