@@ -1,3 +1,6 @@
+## What this is
+* A minimal end to end loop you can run locally
+* A template you can adapt to real model activations or real neural pipelines later
 # Real time neuron labeling demo
 
 A small runnable demo that treats labeling as an online inference loop:
@@ -11,13 +14,17 @@ This repo has two demos:
 
 * **Bio style analog** (`src/`): synthetic spike counts with hidden tuning plus identity drift
 * **AI unit labeling** (`src_ai/`): streaming concept conditioned labeling for hidden units in a toy model
+## Repo layout
+
+```text
 requirements.txt
 LICENSE.txt
+
 src/
   simulator.py           Synthetic population and hidden tuning generator
-  identity_tracker.py    Stable id matching from drifting features
-  online_labeler.py      Streaming label vector and confidence
-  active_prober.py       Chooses next probe to reduce label uncertainty
+  identity_tracker.py    Stable ID matching under drift
+  online_labeler.py      Streaming label vectors + confidence
+  active_prober.py       Chooses next probes to reduce label uncertainty
   run_console.py         Console runner
   run_dashboard.py       Streamlit dashboard
 
@@ -30,11 +37,7 @@ src_ai/
 paper_assets/
   fig1_pipeline.png
   fig2_snapshot.png
-
-
-## What this is
-* A minimal end to end loop you can run locally
-* A template you can adapt to real model activations or real neural pipelines later
+```
 
 ## How this addresses the NeuronAI issue
 
