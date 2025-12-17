@@ -11,6 +11,26 @@ This repo has two demos:
 
 * **Bio style analog** (`src/`): synthetic spike counts with hidden tuning plus identity drift
 * **AI unit labeling** (`src_ai/`): streaming concept conditioned labeling for hidden units in a toy model
+requirements.txt
+LICENSE.txt
+src/
+  simulator.py           Synthetic population and hidden tuning generator
+  identity_tracker.py    Stable id matching from drifting features
+  online_labeler.py      Streaming label vector and confidence
+  active_prober.py       Chooses next probe to reduce label uncertainty
+  run_console.py         Console runner
+  run_dashboard.py       Streamlit dashboard
+
+src_ai/
+  dataset.py             Streaming concept labeled inputs
+  toy_model.py           Small feedforward toy model
+  online_labeler_ai.py   Streaming unit labeling against concepts
+  run_ai_demo.py         AI demo runner
+
+paper_assets/
+  fig1_pipeline.png
+  fig2_snapshot.png
+
 
 ## What this is
 * A minimal end to end loop you can run locally
